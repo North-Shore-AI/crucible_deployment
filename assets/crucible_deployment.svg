@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="hexFill" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1F3B"/>
+      <stop offset="0.55" stop-color="#123B5B"/>
+      <stop offset="1" stop-color="#0F2A3F"/>
+    </linearGradient>
+    <linearGradient id="hexStroke" x1="18" y1="0" x2="182" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="rolloutStroke" x1="40" y1="130" x2="160" y2="130" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="rocketBody" x1="86" y1="50" x2="114" y2="130" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E2E8F0"/>
+      <stop offset="0.6" stop-color="#94A3B8"/>
+      <stop offset="1" stop-color="#64748B"/>
+    </linearGradient>
+    <linearGradient id="rocketNose" x1="80" y1="30" x2="120" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="100" y1="128" x2="100" y2="172" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10B981"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="100" cy="92" r="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38BDF8" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#0B1F3B" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#94A3B8" stroke-opacity="0.18" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="maskFade" cx="100" cy="90" r="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.2"/>
+    </radialGradient>
+    <mask id="patternMask">
+      <rect width="200" height="200" fill="url(#maskFade)"/>
+    </mask>
+    <filter id="shadow" x="-20" y="-20" width="240" height="240" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0B1F3B" flood-opacity="0.45"/>
+    </filter>
+    <filter id="innerGlow" x="-10" y="-10" width="220" height="220" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0.12  0 0 0 0 0.45  0 0 0 0 0.99  0 0 0 0.6 0"/>
+    </filter>
+    <clipPath id="hexClip">
+      <polygon points="100 8 182 54 182 146 100 192 18 146 18 54"/>
+    </clipPath>
+  </defs>
+
+  <polygon points="100 8 182 54 182 146 100 192 18 146 18 54" fill="url(#hexFill)" stroke="url(#hexStroke)" stroke-width="4" filter="url(#shadow)"/>
+  <polygon points="100 18 170 60 170 140 100 182 30 140 30 60" fill="none" stroke="#1E3A8A" stroke-opacity="0.5" stroke-width="2"/>
+
+  <g clip-path="url(#hexClip)">
+    <rect width="200" height="200" fill="url(#hexFill)"/>
+    <rect width="200" height="200" fill="url(#grid)" mask="url(#patternMask)"/>
+    <circle cx="100" cy="92" r="80" fill="url(#glow)"/>
+
+    <circle cx="100" cy="96" r="44" fill="none" stroke="#3B82F6" stroke-opacity="0.25" stroke-dasharray="6 6" stroke-width="2"/>
+
+    <path d="M48 146 C78 124 122 124 152 146" fill="none" stroke="url(#rolloutStroke)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M56 156 C82 140 118 140 144 156" fill="none" stroke="url(#rolloutStroke)" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
+    <path d="M64 166 C86 154 114 154 136 166" fill="none" stroke="url(#rolloutStroke)" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+
+    <circle cx="60" cy="148" r="4" fill="#10B981"/>
+    <circle cx="100" cy="136" r="4" fill="#60A5FA"/>
+    <circle cx="140" cy="148" r="4" fill="#10B981"/>
+
+    <path d="M100 30 L120 58 L80 58 Z" fill="url(#rocketNose)"/>
+    <rect x="86" y="56" width="28" height="76" rx="14" fill="url(#rocketBody)" stroke="#0F172A" stroke-opacity="0.35"/>
+    <rect x="92" y="86" width="16" height="6" rx="3" fill="#1E3A8A" opacity="0.55"/>
+    <rect x="92" y="100" width="16" height="6" rx="3" fill="#1E3A8A" opacity="0.45"/>
+    <rect x="92" y="114" width="16" height="6" rx="3" fill="#1E3A8A" opacity="0.35"/>
+    <circle cx="100" cy="72" r="7" fill="#0B1F3B" stroke="#34D399" stroke-width="2"/>
+    <path d="M86 104 L66 120 L86 120 Z" fill="#3B82F6" opacity="0.85"/>
+    <path d="M114 104 L134 120 L114 120 Z" fill="#3B82F6" opacity="0.85"/>
+    <path d="M100 128 C92 140 92 156 100 170 C108 156 108 140 100 128 Z" fill="url(#flame)" filter="url(#innerGlow)"/>
+
+    <path d="M52 118 L80 96 L120 78" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+    <path d="M120 78 L130 78 L126 72 Z" fill="#38BDF8" opacity="0.6"/>
+  </g>
+</svg>
