@@ -3,9 +3,29 @@ defmodule CrucibleDeployment.Stages.Deploy do
   Crucible stage for deploying a model version.
   """
 
+  if Code.ensure_loaded?(Crucible.Stage) do
+    @behaviour Crucible.Stage
+  end
+
+  @impl true
+  def describe(_opts) do
+    %{
+      name: :deploy,
+      description: "Deploys a registered model version to an inference target",
+      required: [],
+      optional: [:target, :strategy, :config],
+      types: %{
+        target: {:enum, [:vllm, :tgi, :triton, :sagemaker, :kubernetes]},
+        strategy: {:enum, [:canary, :blue_green, :rolling, :recreate]},
+        config: :map
+      }
+    }
+  end
+
   @doc """
   Run the deployment stage when crucible_framework is available.
   """
+  @impl true
   @spec run(term(), map()) :: {:ok, term()} | {:error, term()}
   def run(context, opts) do
     if crucible_available?(context) do

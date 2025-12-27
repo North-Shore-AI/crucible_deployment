@@ -112,6 +112,29 @@ Emitted events include:
 - `[:crucible_deployment, :rollback]`
 - `[:crucible_deployment, :health_check]`
 
+## Deployment Stages
+
+This package provides Crucible stages for model deployment:
+
+- `:deploy` - Deploy model to inference target (vLLM, TGI, Triton, SageMaker, Kubernetes)
+- `:deployment_promote` - Promote canary/staged deployment to full traffic
+- `:rollback` - Roll back deployment to previous version
+
+All stages implement the `Crucible.Stage` behaviour with full describe/1 schemas.
+
+### Stage Options
+
+**Deploy Stage (`:deploy`):**
+- `target` - Inference target (`:vllm`, `:tgi`, `:triton`, `:sagemaker`, `:kubernetes`)
+- `strategy` - Rollout strategy (`:canary`, `:blue_green`, `:rolling`, `:recreate`)
+- `config` - Target-specific configuration map
+
+**Promote Stage (`:deployment_promote`):**
+- No options required. Promotes the deployment from context artifacts.
+
+**Rollback Stage (`:rollback`):**
+- No options required. Rolls back the deployment from context artifacts.
+
 ## Crucible Framework Integration
 
 Stages are available when `crucible_framework` is present:

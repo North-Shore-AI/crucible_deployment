@@ -3,9 +3,25 @@ defmodule CrucibleDeployment.Stages.Rollback do
   Crucible stage for rolling back a deployment.
   """
 
+  if Code.ensure_loaded?(Crucible.Stage) do
+    @behaviour Crucible.Stage
+  end
+
+  @impl true
+  def describe(_opts) do
+    %{
+      name: :rollback,
+      description: "Rolls back a deployment to a previous version",
+      required: [],
+      optional: [],
+      types: %{}
+    }
+  end
+
   @doc """
   Run the rollback stage when crucible_framework is available.
   """
+  @impl true
   @spec run(term(), map()) :: {:ok, term()} | {:error, term()}
   def run(context, _opts) do
     if crucible_available?(context) do

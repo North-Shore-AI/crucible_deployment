@@ -3,9 +3,25 @@ defmodule CrucibleDeployment.Stages.Promote do
   Crucible stage for promoting a deployment to full traffic.
   """
 
+  if Code.ensure_loaded?(Crucible.Stage) do
+    @behaviour Crucible.Stage
+  end
+
+  @impl true
+  def describe(_opts) do
+    %{
+      name: :deployment_promote,
+      description: "Promotes a canary/staged deployment to receive full traffic",
+      required: [],
+      optional: [],
+      types: %{}
+    }
+  end
+
   @doc """
   Run the promote stage when crucible_framework is available.
   """
+  @impl true
   @spec run(term(), map()) :: {:ok, term()} | {:error, term()}
   def run(context, _opts) do
     if crucible_available?(context) do
