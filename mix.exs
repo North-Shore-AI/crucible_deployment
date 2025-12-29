@@ -1,14 +1,14 @@
 defmodule CrucibleDeployment.MixProject do
   use Mix.Project
 
-  @version "0.2.0"
+  @version "0.2.1"
   @source_url "https://github.com/North-Shore-AI/crucible_deployment"
 
   def project do
     [
       app: :crucible_deployment,
       version: @version,
-      elixir: "~> 1.18",
+      elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       preferred_cli_env: [dialyzer: :dev],
@@ -40,10 +40,10 @@ defmodule CrucibleDeployment.MixProject do
       {:req, "~> 0.5"},
       {:finch, "~> 0.18"},
       # {:k8s, "~> 2.6", optional: true},
-      {:crucible_framework, "~> 0.5.0"},
+      {:crucible_framework, "~> 0.5.2"},
       {:crucible_ir, "~> 0.2.1"},
-      {:crucible_model_registry, "~> 0.2.0"},
-      {:telemetry, "~> 1.2"},
+      {:crucible_model_registry, "~> 0.3.1"},
+      {:telemetry, "~> 1.3"},
       {:telemetry_metrics, "~> 0.6"},
       {:mox, "~> 1.1", only: :test},
       {:dialyxir, "~> 1.4", only: :dev, runtime: false},

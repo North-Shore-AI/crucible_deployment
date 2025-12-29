@@ -29,7 +29,7 @@
 
 ```elixir
 # mix.exs
-{:crucible_deployment, "~> 0.1.0"}
+{:crucible_deployment, "~> 0.2.1"}
 ```
 
 ## Quick Start

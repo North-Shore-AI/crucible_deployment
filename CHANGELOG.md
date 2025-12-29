@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] - 2025-12-28
+
+### Changed
+- Broadened Elixir version requirement to ~> 1.14 for wider compatibility
+- Updated crucible_framework dependency to ~> 0.5.2
+- Updated crucible_model_registry dependency to ~> 0.3.1
+- Updated telemetry dependency to ~> 1.3
+
 ## [0.2.0] - 2025-12-27
 
 ### Added
